@@ -1,0 +1,10 @@
+# Fictional public example, authored for this release.
+@prefix ex: <https://example.org/ontology/cloud#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Metric a owl:Class ; rdfs:label "指标"@zh ; rdfs:comment "虚构的资源度量。"@zh .
+ex:Utilization a owl:Class ; rdfs:subClassOf ex:Metric ; rdfs:label "利用率"@zh ; rdfs:comment "虚构的利用率指标。"@zh .
+ex:measures a owl:ObjectProperty ; rdfs:label "度量对象"@zh ; rdfs:domain ex:Metric ; rdfs:range ex:ResourcePool .
+ex:value a owl:DatatypeProperty ; rdfs:label "指标值"@zh ; rdfs:domain ex:Metric ; rdfs:range xsd:decimal .

@@ -1,0 +1,18 @@
+# Fictional public example, authored for this release.
+@prefix ex: <https://example.org/ontology/service#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+<#Regions> a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "demo.regions" ] ;
+  rr:subjectMap [ rr:template "https://example.org/resource/region/{region_id}" ; rr:class ex:Region ] ;
+  rr:predicateObjectMap [ rr:predicate ex:regionId ; rr:objectMap [ rr:column "region_id" ; rr:datatype xsd:string ] ] .
+<#Pools> a rr:TriplesMap ;
+  rr:logicalTable [ rr:tableName "demo.resource_pools" ] ;
+  rr:subjectMap [ rr:template "https://example.org/resource/pool/{pool_id}" ; rr:class ex:ResourcePool ] ;
+  rr:predicateObjectMap [ rr:predicate ex:resourcePoolId ; rr:objectMap [ rr:column "pool_id" ; rr:datatype xsd:string ] ] ;
+  rr:predicateObjectMap [ rr:predicate ex:locatedIn ; rr:objectMap [
+    rr:parentTriplesMap <#Regions> ; rr:joinCondition [ rr:child "region_id" ; rr:parent "region_id" ]
+  ] ] .

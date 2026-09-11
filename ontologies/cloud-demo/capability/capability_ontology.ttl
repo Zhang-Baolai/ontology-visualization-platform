@@ -1,0 +1,10 @@
+# Fictional public example, authored for this release.
+@prefix ex: <https://example.org/ontology/cloud#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:Capability a owl:Class ; rdfs:label "能力"@zh ; rdfs:comment "虚构的资源管理能力。"@zh .
+ex:Scaling a owl:Class ; rdfs:subClassOf ex:Capability ; rdfs:label "弹性扩容"@zh ; rdfs:comment "虚构的扩容能力。"@zh .
+ex:manages a owl:ObjectProperty ; rdfs:label "管理"@zh ; rdfs:domain ex:Capability ; rdfs:range ex:ResourcePool .
+ex:observes a owl:ObjectProperty ; rdfs:label "关注指标"@zh ; rdfs:domain ex:Capability ; rdfs:range ex:Metric .

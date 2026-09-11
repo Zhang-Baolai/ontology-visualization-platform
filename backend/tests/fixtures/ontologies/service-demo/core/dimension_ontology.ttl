@@ -1,0 +1,7 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix voc: <https://example.org/ontology/cloud#> .
+
+voc:Flow a owl:Class .
+voc:Customer a owl:Class .
+voc:uuid a owl:DatatypeProperty .
+voc:flowOfCustomer a owl:ObjectProperty .

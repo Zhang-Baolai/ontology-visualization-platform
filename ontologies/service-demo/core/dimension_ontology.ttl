@@ -1,0 +1,21 @@
+# Fictional public example, authored for this release.
+@prefix ex: <https://example.org/ontology/service#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+ex:Asset a owl:Class ; rdfs:label "服务资产"@zh ; rdfs:comment "虚构示例：服务资产。"@zh .
+ex:Region a owl:Class ; rdfs:label "服务区域"@zh ; rdfs:comment "虚构示例：服务区域。"@zh ; rdfs:subClassOf ex:Asset .
+ex:ResourcePool a owl:Class ; rdfs:label "服务池"@zh ; rdfs:comment "虚构示例：服务池。"@zh ; rdfs:subClassOf ex:Asset .
+ex:ComputePool a owl:Class ; rdfs:label "计算服务池"@zh ; rdfs:comment "虚构示例：计算服务池。"@zh ; rdfs:subClassOf ex:ResourcePool .
+ex:StoragePool a owl:Class ; rdfs:label "存储服务池"@zh ; rdfs:comment "虚构示例：存储服务池。"@zh ; rdfs:subClassOf ex:ResourcePool .
+ex:Server a owl:Class ; rdfs:label "服务实例"@zh ; rdfs:comment "虚构示例：服务实例。"@zh ; rdfs:subClassOf ex:Asset .
+
+ex:Asset owl:hasKey ( ex:assetId ) .
+ex:assetId a owl:DatatypeProperty ; rdfs:label "资产编号"@zh ; rdfs:domain ex:Asset ; rdfs:range xsd:string .
+ex:regionId a owl:DatatypeProperty ; rdfs:label "区域编号"@zh ; rdfs:domain ex:Region ; rdfs:range xsd:string .
+ex:resourcePoolId a owl:DatatypeProperty ; rdfs:label "资源池编号"@zh ; rdfs:domain ex:ResourcePool ; rdfs:range xsd:string .
+ex:capacity a owl:DatatypeProperty ; rdfs:label "容量"@zh ; rdfs:domain ex:ResourcePool ; rdfs:range xsd:decimal .
+ex:locatedIn a owl:ObjectProperty ; rdfs:label "位于"@zh ; rdfs:domain ex:ResourcePool ; rdfs:range ex:Region ; owl:inverseOf ex:containsPool .
+ex:containsPool a owl:ObjectProperty ; rdfs:label "包含资源池"@zh ; rdfs:domain ex:Region ; rdfs:range ex:ResourcePool ; owl:inverseOf ex:locatedIn .
+ex:hosts a owl:ObjectProperty ; rdfs:label "承载"@zh ; rdfs:domain ex:ResourcePool ; rdfs:range ex:Server ; owl:inverseOf ex:hostedBy .
+ex:hostedBy a owl:ObjectProperty ; rdfs:label "运行于"@zh ; rdfs:domain ex:Server ; rdfs:range ex:ResourcePool ; owl:inverseOf ex:hosts .

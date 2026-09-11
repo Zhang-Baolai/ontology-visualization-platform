@@ -1,0 +1,9 @@
+# Fictional public example, authored for this release.
+@prefix ex: <https://example.org/ontology/service#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<> a owl:Ontology ; rdfs:label "公共示例本体"@zh ;
+  owl:imports <core/dimension_ontology.ttl>, <core/metric_ontology.ttl>,
+              <capability/capability_ontology.ttl>, <scenario/scenario_ontology.ttl> .

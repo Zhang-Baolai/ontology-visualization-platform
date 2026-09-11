@@ -1,0 +1,39 @@
+{
+  "name": "ontology-visualization",
+  "version": "1.5.3",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "npm run test:unit",
+    "test:unit": "vitest run --config vitest.config.ts",
+    "start": "vite preview"
+  },
+  "dependencies": {
+    "cytoscape": "^3.34.0",
+    "cytoscape-fcose": "^2.2.0",
+    "lucide-react": "^1.31.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "react-force-graph-3d": "^1.29.1",
+    "three": "^0.185.1",
+    "three-spritetext": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cytoscape-fcose": "^2.2.5",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@types/three": "^0.185.4",
+    "@vitejs/plugin-react": "6.0.2",
+    "typescript": "5.9.3",
+    "vite": "8.0.13",
+    "vitest": "^4.1.10"
+  },
+  "type": "module",
+  "displayName": "本体可视化平台"
+}

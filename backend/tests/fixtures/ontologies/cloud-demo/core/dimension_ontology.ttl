@@ -1,0 +1,7 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix voc: <https://example.org/ontology/cloud#> .
+
+voc:Region a owl:Class .
+voc:ComputePool a owl:Class .
+voc:regionId a owl:DatatypeProperty .
+voc:resourcePoolId a owl:DatatypeProperty .

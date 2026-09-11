@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "domain": "cloud-demo",
+    "module": "dimension",
+    "source_file": "ontologies/cloud-demo/core/dimension_ontology.ttl",
+    "source_files": [
+      "ontologies/cloud-demo/core/dimension_ontology.ttl"
+    ],
+    "ontology_iri": null,
+    "ontology_label": "维度本体",
+    "ontology_comment": null,
+    "total_classes": 6,
+    "total_datatype_properties": 4,
+    "total_object_properties": 4,
+    "total_nodes": 6,
+    "total_edges": 13,
+    "total_declared_edges": 9,
+    "total_inferred_edges": 4,
+    "total_warnings": 0,
+    "parsed_at": "2026-09-11T03:56:23.866777+00:00"
+  },
+  "nodes": [
+    {
+      "id": "https://example.org/ontology/cloud#Asset",
+      "local_name": "Asset",
+      "qname": "ex:Asset",
+      "type": "class",
+      "label": "云资源",
+      "comment": "虚构示例：云资源。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [],
+      "has_key": [
+        "https://example.org/ontology/cloud#assetId"
+      ],
+      "datatype_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#assetId",
+          "local_name": "assetId",
+          "qname": "ex:assetId",
+          "label": "资产编号",
+          "comment": null,
+          "range": [
+            "http://www.w3.org/2001/XMLSchema#string"
+          ],
+          "is_functional": false,
+          "sub_property_of": []
+        }
+      ],
+      "object_properties": []
+    },
+    {
+      "id": "https://example.org/ontology/cloud#Region",
+      "local_name": "Region",
+      "qname": "ex:Region",
+      "type": "class",
+      "label": "区域",
+      "comment": "虚构示例：区域。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [
+        "https://example.org/ontology/cloud#Asset"
+      ],
+      "has_key": [],
+      "datatype_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#regionId",
+          "local_name": "regionId",
+          "qname": "ex:regionId",
+          "label": "区域编号",
+          "comment": null,
+          "range": [
+            "http://www.w3.org/2001/XMLSchema#string"
+          ],
+          "is_functional": false,
+          "sub_property_of": []
+        }
+      ],
+      "object_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#containsPool",
+          "local_name": "containsPool",
+          "qname": "ex:containsPool",
+          "label": "包含资源池",
+          "comment": null,
+          "range": [
+            "https://example.org/ontology/cloud#ResourcePool"
+          ],
+          "sub_property_of": [],
+          "inverse_of": "https://example.org/ontology/cloud#locatedIn"
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/ontology/cloud#StoragePool",
+      "local_name": "StoragePool",
+      "qname": "ex:StoragePool",
+      "type": "class",
+      "label": "存储资源池",
+      "comment": "虚构示例：存储资源池。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [
+        "https://example.org/ontology/cloud#ResourcePool"
+      ],
+      "has_key": [],
+      "datatype_properties": [],
+      "object_properties": []
+    },
+    {
+      "id": "https://example.org/ontology/cloud#Server",
+      "local_name": "Server",
+      "qname": "ex:Server",
+      "type": "class",
+      "label": "服务器",
+      "comment": "虚构示例：服务器。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [
+        "https://example.org/ontology/cloud#Asset"
+      ],
+      "has_key": [],
+      "datatype_properties": [],
+      "object_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#hostedBy",
+          "local_name": "hostedBy",
+          "qname": "ex:hostedBy",
+          "label": "运行于",
+          "comment": null,
+          "range": [
+            "https://example.org/ontology/cloud#ResourcePool"
+          ],
+          "sub_property_of": [],
+          "inverse_of": "https://example.org/ontology/cloud#hosts"
+        }
+      ]
+    },
+    {
+      "id": "https://example.org/ontology/cloud#ComputePool",
+      "local_name": "ComputePool",
+      "qname": "ex:ComputePool",
+      "type": "class",
+      "label": "计算资源池",
+      "comment": "虚构示例：计算资源池。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [
+        "https://example.org/ontology/cloud#ResourcePool"
+      ],
+      "has_key": [],
+      "datatype_properties": [],
+      "object_properties": []
+    },
+    {
+      "id": "https://example.org/ontology/cloud#ResourcePool",
+      "local_name": "ResourcePool",
+      "qname": "ex:ResourcePool",
+      "type": "class",
+      "label": "资源池",
+      "comment": "虚构示例：资源池。",
+      "class_description": null,
+      "alt_labels": [],
+      "sub_class_of": [
+        "https://example.org/ontology/cloud#Asset"
+      ],
+      "has_key": [],
+      "datatype_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#capacity",
+          "local_name": "capacity",
+          "qname": "ex:capacity",
+          "label": "容量",
+          "comment": null,
+          "range": [
+            "http://www.w3.org/2001/XMLSchema#decimal"
+          ],
+          "is_functional": false,
+          "sub_property_of": []
+        },
+        {
+          "uri": "https://example.org/ontology/cloud#resourcePoolId",
+          "local_name": "resourcePoolId",
+          "qname": "ex:resourcePoolId",
+          "label": "资源池编号",
+          "comment": null,
+          "range": [
+            "http://www.w3.org/2001/XMLSchema#string"
+          ],
+          "is_functional": false,
+          "sub_property_of": []
+        }
+      ],
+      "object_properties": [
+        {
+          "uri": "https://example.org/ontology/cloud#locatedIn",
+          "local_name": "locatedIn",
+          "qname": "ex:locatedIn",
+          "label": "位于",
+          "comment": null,
+          "range": [
+            "https://example.org/ontology/cloud#Region"
+          ],
+          "sub_property_of": [],
+          "inverse_of": "https://example.org/ontology/cloud#containsPool"
+        },
+        {
+          "uri": "https://example.org/ontology/cloud#hosts",
+          "local_name": "hosts",
+          "qname": "ex:hosts",
+          "label": "承载",
+          "comment": null,
+          "range": [
+            "https://example.org/ontology/cloud#Server"
+          ],
+          "sub_property_of": [],
+          "inverse_of": "https://example.org/ontology/cloud#hostedBy"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "inferred:b65538055243cd1946",
+      "source": "https://example.org/ontology/cloud#ComputePool",
+      "target": "https://example.org/ontology/cloud#Region",
+      "label": "位于",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#locatedIn",
+      "inverse_of": "https://example.org/ontology/cloud#containsPool",
+      "sub_property_of": [],
+      "declared": false,
+      "inferred": true,
+      "inference_reason": "ex:ComputePool 继承了 ex:ResourcePool 的对象属性"
+    },
+    {
+      "id": "inferred:8c793be66748354c82",
+      "source": "https://example.org/ontology/cloud#ComputePool",
+      "target": "https://example.org/ontology/cloud#Server",
+      "label": "承载",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#hosts",
+      "inverse_of": "https://example.org/ontology/cloud#hostedBy",
+      "sub_property_of": [],
+      "declared": false,
+      "inferred": true,
+      "inference_reason": "ex:ComputePool 继承了 ex:ResourcePool 的对象属性"
+    },
+    {
+      "id": "object:781727e69e732cda3b",
+      "source": "https://example.org/ontology/cloud#Region",
+      "target": "https://example.org/ontology/cloud#ResourcePool",
+      "label": "包含资源池",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#containsPool",
+      "inverse_of": "https://example.org/ontology/cloud#locatedIn",
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "object:7a48f9b54694cb92dd",
+      "source": "https://example.org/ontology/cloud#ResourcePool",
+      "target": "https://example.org/ontology/cloud#Region",
+      "label": "位于",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#locatedIn",
+      "inverse_of": "https://example.org/ontology/cloud#containsPool",
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "object:d52a3c316ff58f02f8",
+      "source": "https://example.org/ontology/cloud#ResourcePool",
+      "target": "https://example.org/ontology/cloud#Server",
+      "label": "承载",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#hosts",
+      "inverse_of": "https://example.org/ontology/cloud#hostedBy",
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "object:e6d3bd654ebc027949",
+      "source": "https://example.org/ontology/cloud#Server",
+      "target": "https://example.org/ontology/cloud#ResourcePool",
+      "label": "运行于",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#hostedBy",
+      "inverse_of": "https://example.org/ontology/cloud#hosts",
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "inferred:f8aa93dd81a016c6a0",
+      "source": "https://example.org/ontology/cloud#StoragePool",
+      "target": "https://example.org/ontology/cloud#Region",
+      "label": "位于",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#locatedIn",
+      "inverse_of": "https://example.org/ontology/cloud#containsPool",
+      "sub_property_of": [],
+      "declared": false,
+      "inferred": true,
+      "inference_reason": "ex:StoragePool 继承了 ex:ResourcePool 的对象属性"
+    },
+    {
+      "id": "inferred:e59c01cbcdbf537cb5",
+      "source": "https://example.org/ontology/cloud#StoragePool",
+      "target": "https://example.org/ontology/cloud#Server",
+      "label": "承载",
+      "edge_type": "objectProperty",
+      "predicate": "https://example.org/ontology/cloud#hosts",
+      "inverse_of": "https://example.org/ontology/cloud#hostedBy",
+      "sub_property_of": [],
+      "declared": false,
+      "inferred": true,
+      "inference_reason": "ex:StoragePool 继承了 ex:ResourcePool 的对象属性"
+    },
+    {
+      "id": "subclass:8c3f05d37bf27d0aae",
+      "source": "https://example.org/ontology/cloud#ComputePool",
+      "target": "https://example.org/ontology/cloud#ResourcePool",
+      "label": "is a",
+      "edge_type": "subClassOf",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "inverse_of": null,
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "subclass:c86e1c77c0fe91b5e2",
+      "source": "https://example.org/ontology/cloud#Region",
+      "target": "https://example.org/ontology/cloud#Asset",
+      "label": "is a",
+      "edge_type": "subClassOf",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "inverse_of": null,
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "subclass:48a84789fc74fef51e",
+      "source": "https://example.org/ontology/cloud#ResourcePool",
+      "target": "https://example.org/ontology/cloud#Asset",
+      "label": "is a",
+      "edge_type": "subClassOf",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "inverse_of": null,
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "subclass:2343dc3d61c709538d",
+      "source": "https://example.org/ontology/cloud#Server",
+      "target": "https://example.org/ontology/cloud#Asset",
+      "label": "is a",
+      "edge_type": "subClassOf",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "inverse_of": null,
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    },
+    {
+      "id": "subclass:f55fa34f80ef49a48b",
+      "source": "https://example.org/ontology/cloud#StoragePool",
+      "target": "https://example.org/ontology/cloud#ResourcePool",
+      "label": "is a",
+      "edge_type": "subClassOf",
+      "predicate": "http://www.w3.org/2000/01/rdf-schema#subClassOf",
+      "inverse_of": null,
+      "sub_property_of": [],
+      "declared": true,
+      "inferred": false,
+      "inference_reason": null
+    }
+  ],
+  "warnings": []
+}

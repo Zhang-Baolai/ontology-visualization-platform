@@ -1,0 +1,11 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix voc: <https://example.org/ontology/cloud#> .
+
+<#ComputePoolTable> rr:tableName "demo.compute_pool" .
+<#ComputePoolMapping> a rr:TriplesMap ;
+  rr:logicalTable <#ComputePoolTable> ;
+  rr:subjectMap [ rr:template "compute-pool:{resource_pool_base_id}" ; rr:class voc:ComputePool ] ;
+  rr:predicateObjectMap [
+    rr:predicate voc:resourcePoolId ;
+    rr:objectMap [ rr:column "resource_pool_id" ]
+  ] .

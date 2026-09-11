@@ -1,0 +1,26 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix voc: <https://example.org/ontology/cloud#> .
+@prefix obda: <https://w3id.org/obda/vocabulary#> .
+
+<#RegionTable> rr:tableName "demo.cloud_region" .
+
+<#RegionMapping> a rr:TriplesMap ;
+  rr:logicalTable <#RegionTable> ;
+  rr:subjectMap [ rr:template "region:{region_id}" ; rr:class voc:Region ] ;
+  rr:predicateObjectMap [
+    rr:predicate voc:regionId ;
+    rr:objectMap [ rr:column "region_id" ; rr:datatype xsd:string ]
+  ] ;
+  rr:predicateObjectMap [
+    rr:predicate voc:direction ;
+    rr:objectMap [ rr:column "direction" ; rr:datatype xsd:string ]
+  ] .
+
+<#RegionCanonical> a rr:TriplesMap ;
+  rr:logicalTable <#RegionTable> ;
+  rr:subjectMap [
+    rr:template "region:{region_id}" ;
+    rr:class voc:Region ;
+    obda:isCanonicalIRIOf <#RegionMapping>
+  ] .

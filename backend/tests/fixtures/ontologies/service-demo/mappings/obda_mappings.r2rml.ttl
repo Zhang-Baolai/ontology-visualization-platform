@@ -1,0 +1,19 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix voc: <https://example.org/ontology/cloud#> .
+
+<#FlowTable> rr:tableName "demo.usage_records" .
+<#FlowMapping> a rr:TriplesMap ;
+  rr:logicalTable <#FlowTable> ;
+  rr:subjectMap [ rr:template "flow:{uuid}" ; rr:class voc:Flow ] ;
+  rr:predicateObjectMap [ rr:predicate voc:uuid ; rr:objectMap [ rr:column "uuid" ] ] ;
+  rr:predicateObjectMap [
+    rr:predicate voc:flowOfCustomer ;
+    rr:objectMap [
+      rr:parentTriplesMap <#CustomerMapping> ;
+      rr:joinCondition [ rr:child "customerid" ; rr:parent "customerid" ]
+    ]
+  ] .
+
+<#CustomerMapping> a rr:TriplesMap ;
+  rr:logicalTable <#FlowTable> ;
+  rr:subjectMap [ rr:template "customer:{customerid}" ; rr:class voc:Customer ] .
